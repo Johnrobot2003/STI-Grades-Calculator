@@ -1,1 +1,1 @@
-# STI-Grades-Calculator
+# STIGradingCalulator

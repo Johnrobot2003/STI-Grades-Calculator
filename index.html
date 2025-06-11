@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STI Grades Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Savate:ital,wght@0,200..900;1,200..900&family=Smooch+Sans:wght@100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="card" style="width: 20rem;" id="popUp">
+        <div class="card-header bg-warning" style="width: 20rem;">
+            <h5 class="card-header bg-warning " id="warningHeader"></h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text warningTexts"></p>
+            <button class="btn btn-danger text-light" id="closePopUp">Close</a>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="d-flex justify-content-center align-items-center vh-70" style="flex-direction: column;">
+        <h1>STI</h1>
+        <h1>Grade Calculator</h1>
+        <div class="container">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h2 class="display-5">Enter Grades:</h2>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-3 mb-2 mb-md-0">
+                                <strong for="prelimGrade">Prelim Grade:</strong>
+                                <input type="text" id="prelimGrade" class="form-control">
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-2 mb-md-0">
+                                <strong for="midtermGrade">Midter Grade:</strong>
+                                <input type="text" id="midtermGrade" class="form-control">
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-2 mb-md-0">
+                                <strong for="pre-finalGrade">Pre-Finals Grade:</strong>
+                                <input type="text" id="pre-finalGrade" class="form-control">
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-3 mb-2 mb-md-0">
+                                <strong for="finalGrade">Finals Grade:</strong>
+                                <input type="text" id="finalGrade" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col col-md-6 ">
+                                <button id="submitBtn" class="btn btn-primary w-100">Calculate Grade</button>
+                            </div>
+                            <div class="col col-md-6">
+                                <button id="reset" class="btn btn-secondary w-100">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card d-none mt-3" id="resultCard">
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <p>Average Grade</p>
+                                    <h2 id="result"></h2>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <p>GWA</p>
+                                    <h3 id="GWA"></h3>
+                                    <h3 id="remarks" class="badge badge-pill"></h3>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="display-5">Grade Scale:</h2>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Percentage</th>
+                            <th>Grade</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>97.5% - 100%</td>
+                            <td>1.0</td>
+                            <td><span class="badge badge-pill badge-success">Excellent</span></td>
+                        </tr>
+                        <tr>
+                            <td>94.5% - 97.49%</td>
+                            <td>1.25</td>
+                            <td><span class="badge badge-pill badge-primary">Very Good</span></td>
+                        </tr>
+                        <tr>
+                            <td>91.5% - 94.49%</td>
+                            <td>1.5</td>
+                            <td><span class="badge badge-pill badge-primary">Very Good</span></td>
+                        </tr>
+                        <tr>
+                            <td>88.50% - 91.49%</td>
+                            <td>1.75</td>
+                            <td><span class="badge badge-pill badge-primary">Very Good</span></td>
+                        </tr>
+                        <tr>
+                            <td>85.50% - 88.49%</td>
+                            <td>2.0</td>
+                            <td><span class="badge badge-pill badge-secondary">Satisfactory</span></td>
+                        </tr>
+                        <tr>
+                            <td>81.5% - 85.49%</td>
+                            <td>2.25</td>
+                            <td><span class="badge badge-pill badge-secondary">Satisfactory</span></td>
+                        </tr>
+                        <tr>
+                            <td>77.50% - 81.49%</td>
+                            <td>2.5</td>
+                            <td><span class="badge badge-pill badge-secondary">Satisfactory</span></td>
+                        </tr>
+                        <tr>
+                            <td>73.50% - 77.49%</td>
+                            <td>2.75</td>
+                            <td><span class="badge badge-pill badge-warning">Fair</span></td>
+                        </tr>
+                        <tr>
+                            <td>69.50% - 73.49%</td>
+                            <td>3.0</td>
+                            <td><span class="badge badge-pill badge-warning">Fair</span></td>
+                        </tr>
+                        <tr>
+                            <td>69.49% and below%</td>
+                            <td>5.0</td>
+                            <td><span class="badge badge-pill badge-danger">Failed</span></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Remove the container if you want to extend the Footer to full width. -->
+<div class="container mt-4 footer-container">
+
+  <section class="">
+  <!-- Footer -->
+  <footer class="text-center text-dark" style="background-color: #f8f9fa;">
+  <div class="container p-4 pb-0">
+    <p class="d-flex justify-content-center align-items-center fs-4">
+      Created by John Rohan C. Acebo (Ako)
+    </p>
+  </div>
+  <div class="text-center p-3" style="background-color: #e9ecef;">
+    © 2025 Copyright
+    <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+  </div>
+</footer>
+  <!-- Footer -->
+</section>
+  
+</div>
+<!-- End of .container -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
